@@ -1,0 +1,9 @@
+Method,Silhouette
+Maximum Separation Search,0.7866254433339055
+Hierarchical Single Linkage,0.6533091870649097
+Artificial Discretization,0.517316509511168
+Quantile Discretization,0.5036114314162885
+0.87+ Demonstration,0.5020849116052047
+Outlier Isolation,0.3299146256527658
+Ground Truth Simulation,0.026720393307820195
+Combined Features,-0.06568440721813582

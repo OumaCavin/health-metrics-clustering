@@ -1,0 +1,9 @@
+method,n_clusters,silhouette,cluster_sizes
+SingleLinkage_2clusters,2,0.6533091870649097,"[4998, 2]"
+Composite_Single_2,2,0.6368374918397216,"[4999, 1]"
+Quartile_Age,4,0.49504780067086956,
+BMI_Binned,5,0.4920242545778083,
+BMI_UltraStrict,5,0.4591165825352484,
+Clinical_Lax,3,0.11094504439701752,
+Aggressive_Outliers,5,0.023929545120176154,
+Outlier_Based,4,-0.05305460040273904,
