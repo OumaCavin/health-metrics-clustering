@@ -1,0 +1,25 @@
+# Health Metrics Clustering Analysis
+# Requirements for Advanced Machine Learning Project
+# Master's of Science in Public Health Data Science
+
+# Core Data Processing
+pandas>=1.5.0
+numpy>=1.23.0
+
+# Machine Learning
+scikit-learn>=1.1.0
+
+# Visualization
+matplotlib>=3.6.0
+seaborn>=0.12.0
+
+# Notebook
+jupyter>=1.0.0
+ipython>=8.0.0
+
+# Utilities
+tqdm>=4.64.0
+
+# Optional: For advanced visualization
+plotly>=5.10.0
+bokeh>=3.0.0
