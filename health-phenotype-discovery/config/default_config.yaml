@@ -1,0 +1,46 @@
+# Health Phenotype Discovery Configuration
+
+# Data Configuration
+data:
+  raw_path: "data/raw/nhanes_health_data.csv"
+  processed_path: "data/processed"
+  test_size: 0.2
+  random_state: 42
+
+# Preprocessing Configuration
+preprocessing:
+  missing_value_strategy: "median"
+  categorical_encoding: "onehot"
+  feature_scaling: "standard"
+  
+# Clustering Configuration
+clustering:
+  algorithm: "kmeans"
+  n_clusters: 5
+  max_iterations: 300
+  n_init: 10
+
+# Classification Configuration
+classification:
+  models:
+    - name: "random_forest"
+      n_estimators: 100
+      max_depth: 10
+    - name: "xgboost"
+      n_estimators: 100
+      max_depth: 6
+      learning_rate: 0.1
+    - name: "logistic_regression"
+      max_iter: 1000
+  cv_folds: 5
+
+# Interpretability Configuration
+interpretability:
+  shap_sample_size: 100
+  feature_importance_top_n: 20
+
+# Visualization Configuration
+visualization:
+  dpi: 150
+  figure_size: (10, 6)
+  style: "seaborn-v0_8"
