@@ -1,0 +1,15 @@
+{
+  "Best_Method": "BMI Only",
+  "Best_Silhouette": "0.5590",
+  "Best_Clusters": 2,
+  "Target": "0.87-1.00",
+  "Gap": "0.3110",
+  "Status": "NOT_ACHIEVED",
+  "All_Results": {
+    "BMI Only": "0.5590 (n=2)",
+    "BMI + Glucose": "0.3324 (n=3)",
+    "Cardiometabolic": "0.2274 (n=4)",
+    "Comprehensive": "0.1378 (n=6)"
+  },
+  "Insight": "Natural clustering limited by continuous health data spectrum"
+}

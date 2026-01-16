@@ -1,0 +1,6 @@
+{
+  "Method": "K-Means",
+  "Clusters": 2,
+  "Silhouette_Score": "0.0733",
+  "Target_Achieved": false
+}

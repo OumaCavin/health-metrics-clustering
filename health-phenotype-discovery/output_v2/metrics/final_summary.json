@@ -1,0 +1,21 @@
+{
+  "Dataset": {
+    "Total_Samples": 5000,
+    "Total_Features": 48
+  },
+  "DBSCAN_Parameters": {
+    "Epsilon": 4.2,
+    "Min_Samples": 2
+  },
+  "Clustering_Results": {
+    "Number_of_Clusters": 5,
+    "Noise_Points": 4990,
+    "Noise_Ratio": "99.80%"
+  },
+  "Quality_Metrics": {
+    "Silhouette_Score": "0.3792",
+    "Calinski_Harabasz_Index": "5.62",
+    "Davies_Bouldin_Index": "0.6885"
+  },
+  "Target_Status": "NOT_ACHIEVED"
+}

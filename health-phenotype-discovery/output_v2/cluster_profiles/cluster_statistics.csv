@@ -1,0 +1,6 @@
+Cluster,Size,Percentage,Age_mean,Systolic_BP_mean,Diastolic_BP_mean,BMI_mean,Waist_Circumference_mean,Pulse_mean,Respiratory_Rate_mean,Total_Cholesterol_mean,HDL_Cholesterol_mean,LDL_Cholesterol_mean,Triglycerides_mean,Blood_Glucose_mean,HbA1c_mean,Creatinine_mean,BUN_mean,Hemoglobin_mean,WBC_mean,Platelets_mean,Vitamin_D_mean,Alcohol_Days_Per_Week_mean,Moderate_Activity_Days_mean,Vigorous_Activity_Days_mean,Sedentary_Hours_Per_Day_mean,Sleep_Hours_mean,Mental_Health_Days_Not_Good_mean
+0,2,20.0,33.5,112.5,84.0,28.95,111.0,82.5,11.0,184.0,85.0,115.0,47.0,57.5,6.1,1.165,15.5,15.75,6.6,213.0,24.7,2.5,5.5,0.0,4.95,6.35,7.0
+1,2,20.0,25.0,137.0,83.5,24.049999999999997,97.15,57.5,15.0,189.0,43.5,107.0,177.0,87.5,5.45,0.3,12.35,14.15,4.35,311.5,35.05,5.5,4.0,0.5,9.0,7.8500000000000005,2.5
+2,2,20.0,42.0,102.0,87.5,22.15,90.8,74.5,12.0,173.0,51.0,123.0,53.0,89.0,5.7,1.13,16.799999999999997,17.3,8.1,291.5,30.25,0.0,1.5,5.5,8.1,8.1,1.0
+3,2,20.0,44.5,126.0,68.5,31.6,80.9,74.0,14.0,183.0,64.0,115.5,124.5,85.5,5.9,1.315,15.2,12.899999999999999,8.7,260.0,20.15,4.0,1.5,1.0,7.5,6.15,0.0
+4,2,20.0,50.5,136.0,59.5,28.799999999999997,85.9,68.5,17.5,176.5,49.0,109.0,77.0,100.5,4.65,0.865,20.5,15.350000000000001,7.6,316.0,28.6,0.5,3.0,0.5,7.0,8.25,5.0
