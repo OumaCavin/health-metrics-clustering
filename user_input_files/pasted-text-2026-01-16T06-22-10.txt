@@ -1,0 +1,293 @@
+# =============================================================================
+# 3.2 VARIABLE DEFINITIONS AND CLINICAL CONTEXT
+# =============================================================================
+
+print("=" * 70)
+print("VARIABLE DEFINITIONS AND CLINICAL CONTEXT")
+print("=" * 70)
+
+print("""
+Understanding the clinical meaning of each variable is essential for
+appropriate analysis and interpretation of NHANES health data.
+The following provides detailed definitions and clinical reference ranges.
+""")
+
+# Comprehensive variable descriptions dictionary
+variable_descriptions = {
+    # Demographic Variables
+    'sex': {
+        'Description': 'Biological sex of respondent',
+        'Clinical Relevance': 'Sex differences exist in cardiovascular disease risk, metabolic patterns, and mental health prevalence',
+        'Categories': 'Male, Female'
+    },
+    'age': {
+        'Description': 'Age in years at time of examination',
+        'Clinical Relevance': 'Primary risk factor for most chronic diseases; cardiovascular risk increases exponentially after age 40',
+        'Range': '20-80 years (adult NHANES sample)'
+    },
+    'race_ethnicity': {
+        'Description': 'Race and Hispanic origin categories',
+        'Clinical Relevance': 'Health disparities exist across racial/ethnic groups due to social determinants and genetic factors',
+        'Categories': 'Mexican American, Other Hispanic, Non-Hispanic White, Non-Hispanic Black, Other/Multiracial'
+    },
+    'education_level': {
+        'Description': 'Highest education level completed',
+        'Clinical Relevance': 'Strong social determinant of health; higher education associated with better health outcomes',
+        'Categories': 'Less than 9th grade, 9-11th grade, High school graduate, Some college, College graduate or above'
+    },
+    'income_category': {
+        'Description': 'Annual household income category',
+        'Clinical Relevance': 'Income determines access to healthcare, nutritious food, and healthy living environments',
+        'Categories': '<$20,000, $20,000-$45,000, $45,000-$75,000, $75,000-$100,000, >$100,000'
+    },
+    
+    # Body Measurement Variables
+    'weight_kg': {
+        'Description': 'Body weight in kilograms',
+        'Clinical Relevance': 'Key component in BMI calculation; weight changes indicate metabolic health trends',
+        'Range': '40-200 kg (typical adult range)'
+    },
+    'height_cm': {
+        'Description': 'Standing height in centimeters',
+        'Clinical Relevance': 'Used for BMI calculation and growth assessment; declines with age due to vertebral compression',
+        'Range': '140-195 cm (typical adult range)'
+    },
+    'bmi': {
+        'Description': 'Body Mass Index (kg/m²)',
+        'Clinical Relevance': 'Primary screening tool for obesity; strongly associated with diabetes, cardiovascular disease, and mortality',
+        'Clinical Threshold': 'Underweight: <18.5, Normal: 18.5-24.9, Overweight: 25-29.9, Obese: ≥30'
+    },
+    'waist_circumference_cm': {
+        'Description': 'Waist circumference at the iliac crest in centimeters',
+        'Clinical Relevance': 'Better predictor of cardiovascular risk than BMI alone; indicates central/abdominal adiposity',
+        'Clinical Threshold': 'Elevated: ≥102 cm (men), ≥88 cm (women); indicates increased cardiometabolic risk'
+    },
+    
+    # Blood Pressure Variables
+    'systolic_bp_mmHg': {
+        'Description': 'Systolic blood pressure (mmHg)',
+        'Clinical Relevance': 'Primary indicator of hypertension; major risk factor for stroke, heart disease, and kidney failure',
+        'Clinical Threshold': 'Normal: <120, Elevated: 120-129, High: ≥130, Hypertension Stage 2: ≥140'
+    },
+    'diastolic_bp_mmHg': {
+        'Description': 'Diastolic blood pressure (mmHg)',
+        'Clinical Relevance': 'Indicates arterial pressure between heartbeats; elevated diastolic pressure also indicates cardiovascular risk',
+        'Clinical Threshold': 'Normal: <80, Elevated: 80-89, High: ≥90'
+    },
+    
+    # Laboratory Variables
+    'total_cholesterol_mg_dL': {
+        'Description': 'Total cholesterol concentration (mg/dL)',
+        'Clinical Relevance': 'Total blood cholesterol is a key risk factor for atherosclerosis and cardiovascular disease',
+        'Clinical Threshold': 'Desirable: <200, Borderline high: 200-239, High: ≥240'
+    },
+    'hdl_cholesterol_mg_dL': {
+        'Description': 'High-density lipoprotein cholesterol (mg/dL)',
+        'Clinical Relevance': 'Protective cholesterol; higher levels associated with lower cardiovascular disease risk',
+        'Clinical Threshold': 'Low (risk): <40 (men), <50 (women); High (protective): ≥60'
+    },
+    'ldl_cholesterol_mg_dL': {
+        'Description': 'Low-density lipoprotein cholesterol (mg/dL)',
+        'Clinical Relevance': 'Primary atherogenic lipoprotein; main target of cholesterol-lowering therapy',
+        'Clinical Threshold': 'Optimal: <100, Near optimal: 100-129, Borderline high: 130-159, High: 160-189, Very high: ≥190'
+    },
+    'fasting_glucose_mg_dL': {
+        'Description': 'Fasting plasma glucose concentration (mg/dL)',
+        'Clinical Relevance': 'Primary diagnostic marker for diabetes and prediabetes; directly measures glycemic control',
+        'Clinical Threshold': 'Normal: <100, Prediabetes: 100-125, Diabetes: ≥126'
+    },
+    'insulin_uU_mL': {
+        'Description': 'Fasting serum insulin concentration (μU/mL)',
+        'Clinical Relevance': 'Indicator of pancreatic beta-cell function and insulin resistance; elevated in prediabetes/type 2 diabetes',
+        'Clinical Threshold': 'Elevated: >25 μU/mL indicates insulin resistance'
+    },
+    
+    # Behavioral Variables
+    'smoked_100_cigarettes': {
+        'Description': 'Whether respondent has smoked at least 100 cigarettes in lifetime',
+        'Clinical Relevance': 'Key smoking exposure indicator; lifelong smokers have significantly elevated cancer and CVD risk',
+        'Categories': 'Yes, No'
+    },
+    'cigarettes_per_day': {
+        'Description': 'Average number of cigarettes smoked per day among current smokers',
+        'Clinical Relevance': 'Dose-response relationship with lung cancer, COPD, and cardiovascular disease risk',
+        'Range': '1-60 cigarettes/day'
+    },
+    'alcohol_use_past_year': {
+        'Description': 'Whether respondent consumed alcohol in the past year',
+        'Clinical Relevance': 'Alcohol consumption pattern affects liver disease, cancer, and cardiovascular risk',
+        'Categories': 'Yes, No'
+    },
+    'drinks_per_week': {
+        'Description': 'Average number of alcoholic drinks consumed per week',
+        'Clinical Relevance': 'Excessive alcohol consumption increases hypertension, liver disease, and cancer risk',
+        'Clinical Threshold': 'Moderate: ≤7 (women), ≤14 (men); Heavy: >7 (women), >14 (men)'
+    },
+    'vigorous_work_activity': {
+        'Description': 'Vigorous work-related physical activity (y/n)',
+        'Clinical Relevance': 'Physical activity reduces cardiovascular disease, diabetes, and mortality risk',
+        'Categories': 'Yes (vigorous activity at work), No'
+    },
+    'moderate_work_activity': {
+        'Description': 'Moderate work-related physical activity (y/n)',
+        'Clinical Relevance': 'Moderate activity provides cardiovascular benefits and metabolic health improvements',
+        'Categories': 'Yes (moderate activity at work), No'
+    },
+    'vigorous_recreation_activity': {
+        'Description': 'Vigorous recreational physical activity (y/n)',
+        'Clinical Relevance': 'Vigorous exercise provides significant cardioprotective and mental health benefits',
+        'Categories': 'Yes (vigorous recreational exercise), No'
+    },
+    'moderate_recreation_activity': {
+        'Description': 'Moderate recreational physical activity (y/n)',
+        'Clinical Relevance': 'Moderate recreational activity improves fitness and reduces chronic disease risk',
+        'Categories': 'Yes (moderate recreational exercise), No'
+    },
+    
+    # Medical History Variables
+    'general_health_rating': {
+        'Description': 'Self-rated overall health status',
+        'Clinical Relevance': 'Strong predictor of mortality; incorporates physical, mental, and functional health perception',
+        'Categories': 'Excellent, Very good, Good, Fair, Poor'
+    },
+    'arthritis': {
+        'Description': 'Doctor-diagnosed arthritis',
+        'Clinical Relevance': 'Common chronic condition affecting mobility and quality of life; associated with cardiovascular risk',
+        'Categories': 'Yes, No'
+    },
+    'heart_failure': {
+        'Description': 'Doctor-diagnosed heart failure',
+        'Clinical Relevance': 'Severe cardiovascular condition with high mortality; endpoint for CVD progression',
+        'Categories': 'Yes, No'
+    },
+    'coronary_heart_disease': {
+        'Description': 'Doctor-diagnosed coronary heart disease',
+        'Clinical Relevance': 'Atherosclerotic heart disease; major cause of heart attacks and mortality',
+        'Categories': 'Yes, No'
+    },
+    'angina_pectoris': {
+        'Description': 'Doctor-diagnosed angina (chest pain due to heart disease)',
+        'Clinical Relevance': 'Symptom of coronary artery disease; indicates myocardial ischemia',
+        'Categories': 'Yes, No'
+    },
+    'heart_attack': {
+        'Description': 'Doctor-diagnosed myocardial infarction (heart attack)',
+        'Clinical Relevance': 'Acute coronary event; major cause of morbidity and mortality',
+        'Categories': 'Yes, No'
+    },
+    'stroke': {
+        'Description': 'Doctor-diagnosed stroke',
+        'Clinical Relevance': 'Cerebrovascular event; major cause of disability and mortality',
+        'Categories': 'Yes, No'
+    },
+    'cancer_diagnosis': {
+        'Description': 'Doctor-diagnosed cancer or malignancy',
+        'Clinical Relevance': 'History of cancer affects overall health status and mortality risk',
+        'Categories': 'Yes, No'
+    },
+    
+    # Mental Health Variables (PHQ-9 Items)
+    'phq9_little_interest': {
+        'Description': 'PHQ-9: Little interest or pleasure in doing things (past 2 weeks)',
+        'Clinical Relevance': 'Anhedonia symptom; core indicator of depression severity',
+        'Scale': '0 (Not at all) to 3 (Nearly every day)'
+    },
+    'phq9_feeling_down': {
+        'Description': 'PHQ-9: Feeling down, depressed, or hopeless (past 2 weeks)',
+        'Clinical Relevance': 'Core mood symptom; key depression indicator',
+        'Scale': '0 (Not at all) to 3 (Nearly every day)'
+    },
+    'phq9_sleep_trouble': {
+        'Description': 'PHQ-9: Trouble falling or staying asleep, or sleeping too much (past 2 weeks)',
+        'Clinical Relevance': 'Sleep disturbance common in depression; affects overall health and metabolism',
+        'Scale': '0 (Not at all) to 3 (Nearly every day)'
+    },
+    'phq9_feeling_tired': {
+        'Description': 'PHQ-9: Feeling tired or having little energy (past 2 weeks)',
+        'Clinical Relevance': 'Fatigue symptom; impacts daily functioning and quality of life',
+        'Scale': '0 (Not at all) to 3 (Nearly every day)'
+    },
+    'phq9_poor_appetite': {
+        'Description': 'PHQ-9: Poor appetite or overeating (past 2 weeks)',
+        'Clinical Relevance': 'Appetite changes indicate depression severity; affects metabolic health',
+        'Scale': '0 (Not at all) to 3 (Nearly every day)'
+    },
+    'phq9_feeling_bad_about_self': {
+        'Description': 'PHQ-9: Feeling bad about yourself or that you are a failure (past 2 weeks)',
+        'Clinical Relevance': 'Self-esteem issue; cognitive symptom of depression',
+        'Scale': '0 (Not at all) to 3 (Nearly every day)'
+    },
+    'phq9_trouble_concentrating': {
+        'Description': 'PHQ-9: Trouble concentrating on things (past 2 weeks)',
+        'Clinical Relevance': 'Cognitive dysfunction; affects work performance and safety',
+        'Scale': '0 (Not at all) to 3 (Nearly every day)'
+    },
+    'phq9_moving_speaking': {
+        'Description': 'PHQ-9: Moving or speaking so slowly that others could have noticed (past 2 weeks)',
+        'Description': 'Or the opposite: being so fidgety or restless that you were moving around a lot more than usual',
+        'Clinical Relevance': 'Psychomotor symptoms; indicates more severe depression',
+        'Scale': '0 (Not at all) to 3 (Nearly every day)'
+    },
+    'phq9_suicidal_thoughts': {
+        'Description': 'PHQ-9: Thoughts that you would be better off dead or hurting yourself (past 2 weeks)',
+        'Clinical Relevance': 'Suicidal ideation; critical safety indicator requiring immediate assessment',
+        'Scale': '0 (Not at all) to 3 (Nearly every day)'
+    },
+    'phq9_total_score': {
+        'Description': 'PHQ-9 Total Score (sum of all 9 items)',
+        'Clinical Relevance': 'Validated depression severity measure; guides treatment decisions',
+        'Clinical Threshold': 'None: 0-4, Mild: 5-9, Moderate: 10-14, Moderately severe: 15-19, Severe: 20-27'
+    }
+}
+
+# Create a DataFrame for display
+var_info_list = []
+for var, info in variable_descriptions.items():
+    row = {'Variable': var}
+    row.update(info)
+    var_info_list.append(row)
+
+var_info_df = pd.DataFrame(var_info_list)
+
+print("\n" + "-" * 70)
+print("VARIABLE SUMMARY TABLE")
+print("-" * 70)
+print(f"\nTotal Variables Documented: {len(variable_descriptions)}")
+print(f"  - Demographic Variables: {len(DEMOGRAPHIC_VARS)}")
+print(f"  - Body Measurements: {len(BODY_MEASURE_VARS)}")
+print(f"  - Blood Pressure: {len(BLOOD_PRESSURE_VARS)}")
+print(f"  - Laboratory Values: {len(LABORATORY_VARS)}")
+print(f"  - Behavioral Factors: {len(BEHAVIORAL_VARS)}")
+print(f"  - Medical History: {len(MEDICAL_VARS)}")
+print(f"  - Mental Health (PHQ-9): {len(MENTAL_HEALTH_VARS)}")
+
+print("\n[INFO] Variable descriptions stored in 'variable_descriptions' dictionary")
+print("      Access clinical context via: variable_descriptions['variable_name']")
+
+# Display as formatted table
+pd.set_option('display.max_colwidth', 50)
+display(var_info_df[['Variable', 'Description', 'Clinical Relevance']].head(10))
+
+print("\n" + "=" * 70)
+print("CLINICAL CONTEXT SUMMARY")
+print("=" * 70)
+print("""
+Key Clinical Considerations for GMM Analysis:
+------------------------------------------------
+1. Cardiovascular Risk Factors (BMI, BP, Cholesterol, Glucose)
+   - These form the core cardiometabolic risk profile
+   - Clusters may represent distinct risk strata
+
+2. Mental Health (PHQ-9)
+   - Depression often co-occurs with chronic disease
+   - Clusters may reveal mind-body health connections
+
+3. Behavioral Factors (Smoking, Alcohol, Physical Activity)
+   - Modifiable risk factors with clear intervention targets
+   - Clusters may show lifestyle patterns
+
+4. Comorbidities (Heart Disease, Diabetes, Cancer)
+   - Disease history provides clinical validation
+   - Clusters should reflect known disease patterns
+""")
+print("=" * 70)
