@@ -1,0 +1,46 @@
+{
+  "Method": "Agglomerative Hierarchical Clustering (Single Linkage)",
+  "Features": "BMI Only",
+  "Clusters": 2,
+  "Distance_Metric": "euclidean",
+  "Silhouette_Score": 0.6533,
+  "KMeans_Baseline": 0.559,
+  "Improvement_Percent": 16.87,
+  "All_Results": [
+    {
+      "features": "BMI Only",
+      "score": 0.6533091870649097,
+      "n_clusters": 2
+    },
+    {
+      "features": "BMI + euclidean",
+      "score": 0.6533091870649097,
+      "n_clusters": 2
+    },
+    {
+      "features": "BMI + manhattan",
+      "score": 0.6533091870649097,
+      "n_clusters": 2
+    },
+    {
+      "features": "BMI + cosine",
+      "score": 0.5588840836021037,
+      "n_clusters": 2
+    },
+    {
+      "features": "BMI + Waist",
+      "score": 0.5099229747471054,
+      "n_clusters": 2
+    },
+    {
+      "features": "BMI + Age",
+      "score": 0.5075419288938903,
+      "n_clusters": 2
+    },
+    {
+      "features": "BMI + Glucose",
+      "score": 0.5072019870675194,
+      "n_clusters": 2
+    }
+  ]
+}

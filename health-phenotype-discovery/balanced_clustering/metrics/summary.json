@@ -1,0 +1,40 @@
+{
+  "Best_Method": "Single Linkage",
+  "Silhouette_Score": 0.6533,
+  "Clusters": 2,
+  "Balance": "UNBALANCED",
+  "KMeans_Baseline": 0.559,
+  "Improvement_Percent": 16.87,
+  "All_Methods": [
+    {
+      "method": "Single Linkage",
+      "score": 0.6533091870649097,
+      "clusters": 2,
+      "balance": "UNBALANCED"
+    },
+    {
+      "method": "GMM (Best)",
+      "score": 0.558755109637841,
+      "clusters": 2,
+      "balance": "BALANCED"
+    },
+    {
+      "method": "Ward Linkage",
+      "score": 0.5580028797934027,
+      "clusters": 2,
+      "balance": "BALANCED"
+    },
+    {
+      "method": "Complete Linkage",
+      "score": 0.5288850063391827,
+      "clusters": 2,
+      "balance": "BALANCED"
+    },
+    {
+      "method": "Average Linkage",
+      "score": 0.5083626602563771,
+      "clusters": 3,
+      "balance": "BALANCED"
+    }
+  ]
+}
